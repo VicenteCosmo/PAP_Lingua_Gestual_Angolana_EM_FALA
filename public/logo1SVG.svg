@@ -1,0 +1,18 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3333 3333" width="3333" height="3333">
+	<title>LOGO</title>
+	<style>
+		tspan { white-space:pre } 
+		.s0 { fill: #ffffff } 
+		.t1 { font-size: 150px;fill: #094aa4;font-weight: 400;font-family: "Zambajoun", "Zambajoun" } 
+		.t2 { font-size: 381px;fill: #094aa4;font-weight: 400;font-family: "DejaVuSans", "DejaVu Sans" } 
+	</style>
+	<path id="Shape 1" fill-rule="evenodd" class="s0" d="m632.8 637.4h1875.7c186.2 0 337 150.9 337 337v1471.7c0 186.1-150.8 337-337 337h-1875.7c-186.1 0-337-150.9-337-337v-1471.7c0-186.1 150.9-337 337-337z"/>
+	<text id="T" style="transform: matrix(11.832,0,0,11.075,868.824,2295.619)" >
+		<tspan x="0" y="0" class="t1">T
+</tspan>
+	</text>
+	<text id="+" style="transform: matrix(3.691,0,0,5.09,1291.56,2301.722)" >
+		<tspan x="0" y="0" class="t2">+
+</tspan>
+	</text>
+</svg>

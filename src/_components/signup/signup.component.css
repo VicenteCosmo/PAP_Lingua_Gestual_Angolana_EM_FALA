@@ -1,0 +1,15 @@
+.a::-webkit-scrollbar{
+    display: none;
+}
+.a{
+    width: 1000px;
+    height: 1000px;
+}
+.snackbar{
+    background-color: #fff !important;
+    border: #094aa4 !important;
+    color: #094aa4 !important;
+    display: none;
+    width: 1000px;
+    height: 1000px;
+}

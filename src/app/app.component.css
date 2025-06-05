@@ -1,0 +1,6 @@
+*{
+    overflow-x: hidden;
+}
+mat-sidenav, mat-sidenav-content{
+    /* transition: all 5000ms ease-in-out; */
+}

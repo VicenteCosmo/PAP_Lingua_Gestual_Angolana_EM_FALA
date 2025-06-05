@@ -1,0 +1,98 @@
+<div *ngIf="loading" >
+  <mat-progress-bar
+  mode="buffer" class="position-fixed" [value]="progress"
+  ></mat-progress-bar>
+</div>
+
+<!-- MatToolBar -->
+
+<mat-toolbar class="mat-elevation-z3 bg-white shadow mb-1" >
+  <button mat-icon-button  (click)="collapsed.set(!collapsed())" *ngIf="sidenav1State==true" >
+    <mat-icon style="color: #094aa4; "  >menu</mat-icon>
+    <!-- <mat-icon  style="color: #094aa4; " >close</mat-icon> -->
+  </button>
+
+  <button mat-icon-button  (click)="sidenav.toggle()" *ngIf="sidenav1State==false" >
+    <mat-icon style="color: #094aa4; "  >menu</mat-icon>
+    <!-- <mat-icon  style="color: #094aa4; " >close</mat-icon> -->
+  </button>
+
+  <a *ngIf="!appearSerchInput" class="navbar-brand" routerLink="/" >
+    <img src="logo2SVG.svg" width="200" height="200" alt="">
+  </a>
+
+  <form class="d-flex col-md-10 form">
+    <div class="input-group col" *ngIf="appearSerchInput">
+      <span class="input-group-text border-end-0 bg-white" >
+        <mat-icon fontIcon="search" style="color: #094aa4;" ></mat-icon>
+      </span>
+      <input class="form-control border-start-0 focus-none" id="inputSearch" type="search" placeholder="Search" aria-label="Search">
+    </div>
+    <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+     
+  </form>
+
+  <button mat-button class="overflow-hidden ms-0 bg-light position-fixed end-0 searchBtn" type="button" (click)="AppearSerchInput()" >
+    <mat-icon *ngIf="appearSerchInput==false" fontIcon="search" style="color: #094aa4;
+    " class="my-auto fs-4 " > </mat-icon>
+    <mat-icon *ngIf="appearSerchInput==true" fontIcon="close" style="color: #094aa4;" 
+     class="my-auto fs-4"  > </mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<mat-sidenav-container *ngIf="sidenav1State" >
+  <mat-sidenav  mode="side" [style.width]="sidenavWidth()" class="bg-white rounded-0 border-1 border-dark" opened>
+    <mat-nav-list>
+      <a 
+      [routerLink]="item.route" 
+       mat-list-item *ngFor="let item of menuItems"
+       routerLinkActive="selectedItem" 
+       #rla="routerLinkActive"
+       [activated]="rla.isActive"
+       class="rounded-0"
+       style="border-left: 5px solid transparent;"
+       >
+        <mat-icon matListItemIcon > {{item.icon}} </mat-icon>
+        <span matListItemTitle > {{item.label}} </span>
+      </a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content [style.margin-left]="sidenavWidth()"  >
+     <router-outlet></router-outlet> 
+      <!-- Cosmo -->
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+<!-- Sidenav2 -->
+<mat-sidenav-container *ngIf="!sidenav1State" >
+  <mat-sidenav mode="over" [style.width]="'200px'" class="bg-white rounded-0 border-1" opened>
+    <mat-nav-list>
+      <a 
+      [routerLink]="item.route" 
+       mat-list-item *ngFor="let item of menuItems"
+       routerLinkActive="selectedItem" 
+       #rla="routerLinkActive"
+       [activated]="rla.isActive"
+       class="rounded-0"
+       style="border-left: 5px solid transparent;"
+       >
+        <mat-icon matListItemIcon > {{item.icon}} </mat-icon>
+        <span matListItemTitle > {{item.label}} </span>
+      </a>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content [style.margin-left]="sidenavWidth()"  >
+     <router-outlet></router-outlet> 
+      <!-- Cosmo -->
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<mat-divider></mat-divider>
+ <!-- MatToolBar -->
+

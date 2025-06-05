@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("../node_modules/bootstrap/dist/css/bootstrap.min.css");
+
+@use "@angular/material" as mat;
+@include mat.core();
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+overflow-x: hidden;
+/* background-color: #f2f2f2 !important; */
+}
+/* *{
+    overflow-x: hidden;
+} */
+
+ngx-loading::-webkit-scrollbar{
+    display: none;
+}
+ngx-loading{
+    overflow: hidden;
+}

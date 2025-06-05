@@ -1,0 +1,28 @@
+<div *ngIf="controlDialog" class=" justify-content-center " style="width: 40vw;" >
+    <form  action="" [formGroup]="form" class="form-control mx-auto my-5 mt-5 border rounded w-75 h-100" (ngSubmit)="connetToWifi()" >
+      <div class="d-flex col-md-5 mx-auto" >
+        <div class="w-100 mx-3 " style="background-color: re; height: 50px !important; "   >
+          <mat-icon fontIcon="settings_input_antenna" style="color: #094aa4; font-size: 4rem; height: 90px !important; " class=" mx-auto mt-2 w-100 " ></mat-icon>
+        </div>
+      </div>
+      <div class="div"  >
+          <mat-form-field class="mt-5 mx-auto col-md-10 d-flex" color="warn"  >
+              <mat-label class="text " color="accent" >Nome da rede</mat-label>
+              <input type="text" class="border-success" matInput placeholder="Nome da rede aqui" formControlName="ssid" >
+          </mat-form-field>
+      </div>
+      <div>
+          <mat-form-field class="mt-1 mx-auto col-md-10 d-flex" color="warn"  >
+              <mat-label class="text " color="accent" >Password</mat-label>
+              <input type="text" class="border-success" matInput placeholder="A sua password aqui" formControlName="password" >
+          </mat-form-field>
+      </div>
+  
+      <button class="mx-auto col-md-5 d-flex" mat-button style="background-color: #094aa4; color: white; " type="submit" [disabled]="!form.valid" >
+          <span>Conectar</span>
+      </button>
+  </form>
+
+  </div>
+
+  <ngx-spinner type="ball-spin-clockwise" color="#094aa4" ></ngx-spinner>

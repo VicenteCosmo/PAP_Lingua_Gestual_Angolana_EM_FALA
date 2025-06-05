@@ -1,0 +1,72 @@
+<mat-tab-group>
+  <mat-tab label="Minitoramento de Rede">
+    <div class="mx-auto p-2 align-items-center justify-content-center">
+      <h1 class="text-center">Gerenciamento de Wifi</h1>
+    
+      <div class="mx-lg-auto text-center justify-content-center p-5">
+        <button mat-raised-button (click)="scanWifi()">Escanear Wifi</button>
+      </div>
+    
+      <mat-card class="p-5" *ngIf="!controlSkeleton">
+        <mat-list>
+          <button 
+            mat-flat-button 
+            class="w-100 mb-2" 
+            *ngFor="let item of wifiList" 
+            (click)="showConnectModal()"
+          >
+            {{ item }}
+          </button>
+        </mat-list>
+      </mat-card>
+    
+      <ngx-skeleton-loader 
+        *ngIf="controlSkeleton"
+        count="5" 
+        appearance="line"
+        style="z-index: 100;"
+      ></ngx-skeleton-loader>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Monitoramento de LGA">
+    <mat-tab-group>
+      <mat-tab *ngFor="let tab of [
+        {label: 'A - E', id: 1},
+        {label: 'F - J', id: 2},
+        {label: 'K - Q', id: 3},
+        {label: 'R - Z', id: 4},
+        {label: 'Números', id: 5},
+        {label: 'Geral - 1 Hand', id: 6}
+      ]" [label]="tab.label">
+        <div class="col-6 mx-auto">
+          <div class="video-container">
+            <img [src]="videoUrl" alt="Video Feed">
+            <p>{{ controller ? 'Vídeo ativo' : 'Vídeo desativado' }}</p>
+          </div>
+        
+          <button 
+            mat-raised-button 
+            color="primary"
+            (click)="startBtn(tab.id)"
+          >
+            Ligar Câmera
+          </button>
+          
+          <button 
+            mat-raised-button 
+            color="warn"
+            (click)="stopBtn(tab.id)"
+            [disabled]="!controller"
+          >
+            Desligar Câmera
+          </button>
+        </div>
+      
+        <div class="status" [class.active]="controller" [class.inactive]="!controller">
+          Status: {{ controller ? 'Ativado' : 'Desativado' }}
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-tab>
+</mat-tab-group>

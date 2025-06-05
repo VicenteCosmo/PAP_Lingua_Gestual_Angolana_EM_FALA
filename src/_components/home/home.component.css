@@ -1,0 +1,64 @@
+#p5Container {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  display: block;
+}
+
+video {
+  width: 100%;
+  display: block;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+#video-container {
+  margin: auto !important;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background: #f5f5f5;
+  min-height: 480px;
+}
+#video-feed {
+  max-width: 100%;
+  display: block; /* Inicia oculto */
+}
+.btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+#start-btn {
+  background-color: #4CAF50;
+}
+#stop-btn {
+  background-color: #f44336;
+}
+.status {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.active {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+.inactive {
+  background-color: #f2dede;
+  color: #a94442;
+}

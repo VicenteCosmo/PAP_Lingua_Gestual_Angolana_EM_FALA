@@ -1,0 +1,51 @@
+<form *ngIf="loadingSpinner" action="" class="form-control mx-auto my-5 mt-5 border rounded w-50 h-50" [formGroup]="formAll" (ngSubmit)="submitForm()" >
+    <div class="d-flex col-md-5 mx-auto" >
+       <span class="fs-3 " style=""  >Signup </span>
+       <div class="" >
+        <mat-icon fontIcon="how_to_reg" style="color: #094aa4; " class="fs-2 mt-2" ></mat-icon>
+       </div>
+    </div>
+    <div class="div">
+        <mat-form-field class="mt-5 mx-auto col-md-10 d-flex" color="warn"  >
+            <mat-label class="text " color="accent" >Name</mat-label>
+            <input type="text" class="border-success" matInput placeholder="Your name here" formControlName="name" >
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="mt-1 mx-auto col-md-10 d-flex" color="warn"  >
+            <mat-label class="text " color="accent" >Email</mat-label>
+            <input type="text" class="border-success" matInput placeholder="Your email here" formControlName="email" >
+        </mat-form-field>
+    </div>
+    <div class="" *ngIf="interceptor"  style="position: absolute; margin-left: 185px; z-index: 99;">
+        <!-- <mat-progress-spinner  
+         class="  " style=" position: relative;" color="accent"
+         mode="indeterminate" >
+        </mat-progress-spinner>  -->
+
+    </div>
+
+    <!-- Spinner -->
+     <ngx-spinner type="ball-spin-clockwise" color="#094aa4" >
+
+     </ngx-spinner>
+
+    <button class="mx-auto col-md-5 d-flex" mat-raised-button type="submit" [disabled]="!formAll.valid" >
+        <span>Submit</span>
+    </button>
+</form>
+
+<!-- <mat-form-field>
+    <mat-label>Message</mat-label>
+    <input matInput value="Disco" #message>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Action</mat-label>
+    <input matInput value="Dance" #action>
+</mat-form-field>
+<button mat-stroked-button (click)="openSnackBar(message.value, action.value)" >Show snack-bar</button> -->
+
+<!-- <button (click)="postService()" >Click to Post datas</button>
+<button (click)="putService()" >Click to Update datas</button> -->
+
+
