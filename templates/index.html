@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Vídeo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        #video-container {
+            margin: 20px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background: #f5f5f5;
+            min-height: 480px;
+        }
+        #video-feed {
+            max-width: 100%;
+            display: none; /* Inicia oculto */
+        }
+        .btn {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+        #start-btn {
+            background-color: #4CAF50;
+        }
+        #stop-btn {
+            background-color: #f44336;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .active {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .inactive {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <h1>Controle de Reconhecimento de Gestos</h1>
+    
+    <div id="video-container">
+        <img id="video-feed" src="{{ url_for('video_feed') }}" alt="Video Feed">
+        <p id="status-message">Vídeo desativado</p>
+    </div>
+    
+    <button id="start-btn" class="btn">Ligar Câmera</button>
+    <button id="stop-btn" class="btn" disabled>Desligar Câmera</button>
+    <button
+    className="bg-yellow-100 middle none rounded-10 bg-gray-900 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+    data-ripple-light="true"
+  >
+    Button
+  </button>
+    
+    <div id="status" class="status inactive">Status: Desativado</div>
+
+    <script>
+        const videoFeed = document.getElementById('video-feed');
+        const startBtn = document.getElementById('start-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        const statusDiv = document.getElementById('status');
+        const statusMessage = document.getElementById('status-message');
+        
+        startBtn.addEventListener('click', () => {
+            // Mostra o elemento de vídeo
+            videoFeed.style.display = 'block';
+            statusMessage.textContent = 'Processando vídeo...';
+            
+            // Ativa o streaming
+            fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action=start'
+            }).then(() => {
+                // Atualiza a interface
+                startBtn.disabled = true;
+                stopBtn.disabled = false;
+                statusDiv.textContent = 'Status: Ativado';
+                statusDiv.className = 'status active';
+                statusMessage.textContent = 'Vídeo ativo - mostrando feed';
+            });
+        });
+        
+        stopBtn.addEventListener('click', () => {
+            // Desativa o streaming
+            fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action=stop'
+            }).then(() => {
+                // Atualiza a interface
+                videoFeed.style.display = 'none';
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+                statusDiv.textContent = 'Status: Desativado';
+                statusDiv.className = 'status inactive';
+                statusMessage.textContent = 'Vídeo desativado';
+            });
+        });
+    </script>
+</body>
+</html>
