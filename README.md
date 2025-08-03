@@ -1,19 +1,32 @@
-# Client
+# Sistema de Tradução de Língua Gestual Angolana para Fala 
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+Descrição do Projeto
 
-## Development server
+Este projeto é uma solução tecnológica voltada para a tradução de gestos da Língua Gestual Angolana (LGA) em fala, visando facilitar a comunicação de pessoas com deficiência de fala (mudos). Ele combina tecnologias de software e hardware para oferecer uma aplicação acessível e funcional.
 
-To start a local development server, run:
+O sistema é composto por duas partes principais: Aplicação Web e Hardware.
+
+- O utilizador aciona a webcam e realiza um gesto.
+- A imagem é capturada e processada por um modelo de reconhecimento de gestos via Flask.
+- O gesto é interpretado e a palavra correspondente é enviada para o ESP32.
+- O ESP32 recebe o dado e aciona o DFPlayer Mini, que reproduz a palavra em áudio.
+
+O desenvolvimento envolve tecnologias como Angular, Node.js e Flask no lado do software, e ESP32 e DFPlayer Mini no hardware.
+
+## Development server 
+
+Para iniciar o projecto, rode:
 
 ```bash
-ng serve
+npm run dev
+```
+```bash
+python main.py
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Assim que o servidor estiver rodando, abra o navegador e e vá para `http://localhost:4200/`. A aplicação será automaticamente recarregada sempre que modificar o código fonte.
 
-## Code scaffolding
-
+## Utilização
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
 ```bash
@@ -26,34 +39,13 @@ For a complete list of available schematics (such as `components`, `directives`,
 ng generate --help
 ```
 
-## Building
+## Vantagens 
 
-To build the project run:
+1. Tecnologias Acessíveis: Uso de Hardware de baixo custo ( ESP32 ) e Software Open-source;
+2. Extensibilidade: Possibilidade de extensão para mais vocábulos.
 
-```bash
-ng build
-```
+## Contributo
+Requisições Pull são bem-vindas. Para mudanças em grande escala, entre em contacto primeiro para discutirmos quais mudanças gostaria de fazer.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Licensa
+[MIT](https://choosealicense.com/licenses/mit)
