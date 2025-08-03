@@ -26,18 +26,9 @@ python main.py
 
 Assim que o servidor estiver rodando, abra o navegador e e vá para `http://localhost:4200/`. A aplicação será automaticamente recarregada sempre que modificar o código fonte.
 
-## Utilização
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Imagem Ilustrativa
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
+<img src="https://drive.google.com/uc?export=view&id=1phUmPRptO8gJrHBEdvDUvbpSXtReE7bp" alt="demo" >
 
 ## Vantagens 
 
